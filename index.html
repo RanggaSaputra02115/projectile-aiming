@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Projectile Aiming: Target Strike</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="wrap">
+  <header id="hud" class="hidden">
+    <div class="chip">Level <b id="hLevel">1</b></div>
+    <div class="chip">Skor <b id="hScore">0</b></div>
+    <div class="chip">Target <b id="hTargets">0/0</b></div>
+    <div class="chip">Tembakan <b id="hShots">0</b></div>
+    <button id="btnPause" class="icon" aria-label="Pause">❚❚</button>
+    <button id="btnSoundH" class="icon" aria-label="Sound">🔊</button>
+  </header>
+  <main id="stage"><canvas id="cv" width="1200" height="600"></canvas></main>
+  <section id="controls" class="hidden">
+    <label>Angle <b id="vAngle">45°</b><input id="angle" type="range" min="0" max="90" value="45"></label>
+    <label>Power <b id="vPower">60%</b><input id="power" type="range" min="0" max="100" value="60"></label>
+    <button id="btnShoot" class="shoot">SHOOT</button>
+  </section>
+</div>
+
+<section id="menu" class="overlay">
+  <h1>PROJECTILE AIMING</h1>
+  <h2>TARGET STRIKE</h2>
+  <button id="btnPlay" class="btn big">PLAY GAME</button>
+  <button id="btnHow" class="btn alt">HOW TO PLAY</button>
+  <button id="btnSoundM" class="btn alt">SOUND: ON</button>
+</section>
+
+<section id="how" class="overlay hidden">
+  <h3>HOW TO PLAY</h3>
+  <ul>
+    <li>Atur <b>Angle</b> (0–90°) dan <b>Power</b> (0–100%) dengan slider.</li>
+    <li>Garis titik-titik menunjukkan perkiraan lintasan proyektil.</li>
+    <li>Tekan <b>SHOOT</b> untuk menembak. Hancurkan semua target sebelum tembakan habis.</li>
+    <li>Sisa tembakan lebih banyak saat target hancur = bonus skor lebih besar.</li>
+    <li>Keyboard: ↑/↓ angle, ←/→ power (Shift = ×5), Spasi/Enter tembak, P pause, R ulang level.</li>
+  </ul>
+  <button id="btnBack" class="btn">BACK</button>
+</section>
+
+<section id="pause" class="overlay hidden">
+  <h3>PAUSED</h3>
+  <button id="btnResume" class="btn big">RESUME</button>
+  <button id="btnRestart" class="btn alt">RESTART LEVEL</button>
+  <button id="btnMenuP" class="btn alt">MAIN MENU</button>
+</section>
+
+<section id="result" class="overlay hidden">
+  <h3 id="rTitle">LEVEL COMPLETED</h3>
+  <div class="stats">
+    <div>Total skor<b id="rScore">0</b></div>
+    <div>Target level ini<b id="rKills">0</b></div>
+    <div>Total target hancur<b id="rTotal">0</b></div>
+  </div>
+  <button id="btnNext" class="btn big">NEXT LEVEL</button>
+  <button id="btnMenuR" class="btn alt">MAIN MENU</button>
+</section>
+
+<script src="js/physics.js"></script>
+<script src="js/levels.js"></script>
+<script src="js/targets.js"></script>
+<script src="js/cannon.js"></script>
+<script src="js/effects.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
